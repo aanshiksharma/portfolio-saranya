@@ -1,0 +1,20 @@
+.link-underline {
+  position: relative;
+
+  &:hover::after {
+    @apply w-full;
+  }
+
+  &::after {
+    content: "";
+    @apply absolute top-full left-0 w-0 h-0.5 bg-foreground rounded transition-all ease-out duration-300;
+  }
+}
+
+.section-sub-heading {
+  @apply uppercase tracking-[10%] text-sm text-muted-foreground font-semibold;
+}
+
+.section-heading {
+  @apply text-5xl;
+}

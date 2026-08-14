@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@import "./components.css";
+
+:root {
+  --background: #f9f7f5;
+  --foreground: #171717;
+
+  --muted-foreground: #5b5a5a;
+
+  --border: #9f9d9c;
+
+  --font-heading:
+    "Noto Serif Display", ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
+  --font-body: Manrope, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  * {
+    border-color: var(--border);
+  }
+
+  background: var(--background);
+  font-family: var(--font-body);
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    letter-spacing: -4%;
+  }
+}
