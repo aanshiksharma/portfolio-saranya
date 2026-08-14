@@ -9,6 +9,10 @@
     content: "";
     @apply absolute top-full left-0 w-0 h-0.5 bg-foreground rounded transition-all ease-out duration-300;
   }
+
+  &.primary-underline::after {
+    @apply bg-primary-foreground;
+  }
 }
 
 .section-sub-heading {

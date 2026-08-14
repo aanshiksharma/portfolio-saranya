@@ -4,11 +4,16 @@
 
 :root {
   --background: #f9f7f5;
-  --foreground: #171717;
+  --foreground: var(--color-neutral-900);
 
-  --muted-foreground: #5b5a5a;
+  --primary: #a6533c;
+  --primary-foreground: #fafafa;
 
-  --border: #9f9d9c;
+  --secondary-foreground: var(--color-neutral-800);
+
+  --muted-foreground: var(--color-neutral-700);
+
+  --border: var(--color-neutral-700);
 
   --font-heading:
     "Noto Serif Display", ui-serif, Georgia, Cambria, "Times New Roman", Times,
@@ -19,6 +24,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary-foreground: var(--secondary-foreground);
 
   --color-muted-foreground: var(--muted-foreground);
 

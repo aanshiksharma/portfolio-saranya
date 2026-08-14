@@ -16,7 +16,7 @@ export default function Header() {
       const SCROLL_TRIGGER_VALUE = 60;
       const currentScroll = window.scrollY;
       const isScrollingDown =
-        currentScroll > SCROLL_TRIGGER_VALUE &&
+        currentScroll > 2 * SCROLL_TRIGGER_VALUE &&
         currentScroll > prevScrollRef.current;
 
       if (currentScroll > SCROLL_TRIGGER_VALUE) setTop(false);
@@ -44,13 +44,13 @@ export default function Header() {
     >
       <div
         className={`
-          flex items-center justify-between gap-32
+          flex items-center justify-between gap-32 w-full max-w-400
           transition-all ease-out duration-300
           rounded-full border
           ${
             top
-              ? "bg-transparent w-full px-12 py-6 border-transparent!"
-              : "w-fit bg-background/20 backdrop-blur-md px-3 py-3 mt-3 border-border!"
+              ? "bg-transparent px-12 py-6 border-transparent!"
+              : "bg-background/20 backdrop-blur-md px-3 py-3 mt-3 mx-3 border-border!"
           }
         `}
       >
@@ -64,9 +64,9 @@ export default function Header() {
           SS
         </a>
 
-        <div className={`flex items-center ${top ? "gap-32" : "gap-16"}`}>
+        <div className="flex items-center gap-32">
           <nav>
-            <ul className={`flex items-center ${top ? "gap-16" : "gap-8"}`}>
+            <ul className="flex items-center gap-16">
               {links.map((link) => (
                 <li key={link.label}>
                   <a
@@ -80,8 +80,12 @@ export default function Header() {
             </ul>
           </nav>
 
-          <Button variant="header" className="group">
+          <Button
+            variant="header"
+            className="group hover:bg-primary hover:text-primary-foreground hover:ring-primary"
+          >
             <span>resume</span>
+
             <ArrowUpRight className="group-hover:translate-x-1.5 group-hover:rotate-45 transition ease-out duration-300" />
           </Button>
         </div>
