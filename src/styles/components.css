@@ -16,7 +16,7 @@
 }
 
 .section-sub-heading {
-  @apply uppercase tracking-[10%] text-sm text-muted-foreground font-semibold;
+  @apply uppercase tracking-[10%] text-xs sm:text-sm text-muted-foreground font-semibold;
 }
 
 .section-heading {

@@ -12,8 +12,9 @@ export default function Button({
   className?: string;
 }) {
   const styles: { [key: string]: string } = {
-    base: "transition-all ease-out duration-300 cursor-pointer",
-    default: "flex items-center gap-4 uppercase font-semibold tracking-[10%]",
+    base: "max-sm:text-sm whitespace-nowrap transition-all ease-out duration-300 cursor-pointer",
+    default:
+      "flex items-center gap-2 md:gap-4 uppercase font-semibold tracking-[10%]",
     header:
       "uppercase font-semibold rounded-full ring ring-foreground flex items-center gap-2 px-8 py-4",
   };
