@@ -16,7 +16,7 @@ export default function Hero() {
 
       <div className="relative flex items-center lg:gap-8 w-full max-w-400 h-screen">
         <div className="flex flex-col gap-8 flex-1 px-6 sm:px-12 py-20">
-          <h1 className="text-7xl sm:text-9xl xl:text-[11.5rem] leading-[86%] grid gap-0">
+          <h1 className="text-[clamp(4rem,20vw,8rem)] sm:text-9xl xl:text-[11.5rem] leading-[86%] grid gap-0">
             <span>Saranya</span>
             <span>Shukla</span>
           </h1>
