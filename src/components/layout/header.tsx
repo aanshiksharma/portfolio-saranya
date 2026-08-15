@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import gsap from "gsap";
 
 import Button from "../ui/button";
 
@@ -8,12 +9,25 @@ import { links } from "../../data/links.data";
 import MobileNavigation from "./mobile-navigation";
 
 export default function Header() {
-  const [hidden, setHidden] = useState<boolean>(false);
   const [top, setTop] = useState<boolean>(true);
   const [mobileNav, setMobileNav] = useState<boolean>(false);
   const prevScrollRef = useRef<number>(0);
 
   useEffect(() => {
+    const toggleHeader = (hide: boolean) => {
+      if (hide) {
+        gsap.to("header", {
+          yPercent: -100,
+          duration: 0.3,
+        });
+      } else {
+        gsap.to("header", {
+          yPercent: 0,
+          duration: 1,
+        });
+      }
+    };
+
     const handleScroll = () => {
       const SCROLL_TRIGGER_VALUE = 60;
       const currentScroll = window.scrollY;
@@ -24,8 +38,7 @@ export default function Header() {
       if (currentScroll > SCROLL_TRIGGER_VALUE) setTop(false);
       else setTop(true);
 
-      if (isScrollingDown && currentScroll > 0) setHidden(true);
-      else setHidden(false);
+      toggleHeader(isScrollingDown);
 
       prevScrollRef.current = currentScroll;
     };
@@ -44,29 +57,24 @@ export default function Header() {
         className={`
         fixed z-100 inset-0 bottom-auto
         flex items-center justify-center
-        transition ease-out duration-300
-        ${hidden ? "-translate-y-full" : "translate-y-0"}
-        
+        transition ease-out duration-300        
       `}
       >
         <div
           className={`
-          flex items-center justify-between gap-32 w-full max-w-400
-          transition-all ease-out duration-300
-          rounded-full border
-          ${
-            top
-              ? "bg-transparent px-6 sm:px-12 py-6 border-transparent!"
-              : "bg-background/20 backdrop-blur-md px-3 py-3 mt-3 mx-3 border-border!"
-          }
-            `}
+            flex items-center justify-between gap-32 w-full max-w-400
+            transition-all ease-out duration-300
+            rounded-full border
+            ${
+              top
+                ? "bg-transparent px-6 sm:px-12 py-6 border-transparent!"
+                : "bg-background/20 backdrop-blur-md px-3 py-3 mt-3 mx-3 md:mx-9 border-border!"
+            }
+          `}
         >
           <a
             href="/"
-            className={`
-            text-5xl font-heading tracking-[-24%] font-light
-            ${top ? "" : "ml-4"}
-          `}
+            className="text-5xl font-heading tracking-[-24%] font-light ml-4 transition-all ease-out duration-300"
           >
             SS
           </a>

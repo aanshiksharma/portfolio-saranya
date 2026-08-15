@@ -1,7 +1,40 @@
 import { ArrowRight } from "lucide-react";
 import Button from "../components/ui/button";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Hero() {
+  useGSAP(() => {
+    const timeline = gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: "#hero",
+        scroller: "body",
+        start: "top top",
+        end: "top -100%",
+        scrub: 2,
+      },
+    });
+
+    timeline.to("#hero-image", {
+      filter: "blur(4px)",
+      translateY: "20%",
+      autoAlpha: 0.4,
+    });
+
+    timeline.to(
+      "#hero-text",
+      {
+        translateY: "30%",
+        autoAlpha: 0.4,
+      },
+      0,
+    );
+  }, []);
+
   return (
     <section className="relative border-b flex items-center justify-center">
       <div className="absolute inset-0 -z-1">
@@ -14,8 +47,11 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative flex items-center lg:gap-8 w-full max-w-400 h-screen">
-        <div className="flex flex-col gap-8 flex-1 px-6 sm:px-12 py-20">
+      <div className="relative flex items-end lg:gap-8 w-full max-w-400 md:pt-10 min-h-screen">
+        <div
+          className="flex flex-col gap-8 flex-1 px-6 sm:px-12 py-20"
+          id="hero-text"
+        >
           <h1 className="text-[clamp(4rem,20vw,8rem)] sm:text-9xl xl:text-[11.5rem] leading-[86%] grid gap-0">
             <span>Saranya</span>
             <span>Shukla</span>
@@ -43,7 +79,10 @@ export default function Hero() {
           </Button>
         </div>
 
-        <div className="absolute max-md:opacity-50 left-auto bottom-0 right-0 sm:right-6 lg:right-16 -z-1 h-full">
+        <div
+          className="absolute max-md:opacity-50 left-auto bottom-0 right-0 sm:right-6 lg:right-16 -z-1 h-full"
+          id="hero-image"
+        >
           <img
             src="/hero-image.png"
             alt="Saranya's Image"
