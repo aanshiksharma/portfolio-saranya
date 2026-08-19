@@ -1,12 +1,12 @@
-import { ArrowRight } from "lucide-react";
-import Button from "../components/ui/button";
-
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero() {
+import { ArrowRight } from "lucide-react";
+import Button from "@/components/ui/button";
+
+export function Hero() {
   useGSAP(() => {
     const timeline = gsap.timeline({
       paused: true,

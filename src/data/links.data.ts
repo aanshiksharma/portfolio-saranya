@@ -1,18 +1,22 @@
 export const links = [
   {
-    label: "work",
-    url: "#work",
+    label: "projects",
+    url: "/projects",
+    hash: "",
   },
   {
     label: "about",
-    url: "#",
+    url: "",
+    hash: "#about",
   },
   {
     label: "skills",
-    url: "#",
+    url: "",
+    hash: "#",
   },
   {
     label: "contact",
-    url: "#",
+    url: "",
+    hash: "#",
   },
 ];

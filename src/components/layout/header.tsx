@@ -7,6 +7,7 @@ import { ArrowUpRight, Menu } from "lucide-react";
 
 import { links } from "../../data/links.data";
 import MobileNavigation from "./mobile-navigation";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
@@ -72,24 +73,27 @@ export default function Header() {
             }
           `}
         >
-          <a
-            href="/"
+          <Link
+            to="/"
             className="text-5xl font-heading tracking-[-24%] font-light ml-4 transition-all ease-out duration-300"
           >
             SS
-          </a>
+          </Link>
 
           <div className="max-md:hidden flex items-center gap-16 lg:gap-32">
             <nav>
               <ul className="flex items-center gap-8 lg:gap-16">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.url}
+                    <Link
+                      to={{
+                        pathname: link.url,
+                        hash: link.hash,
+                      }}
                       className="link-underline uppercase font-semibold py-2"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

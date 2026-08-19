@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-import Button from "./button";
+import Button from "@/components/ui/button";
 
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { ArrowUpRight } from "lucide-react";
-import type { PROJECT } from "../../data/projects.data";
 
-export default function Project({
+import type { PROJECT } from "@/data/projects.data";
+
+export function ProjectCard({
   project,
   index,
 }: {

@@ -1,10 +1,11 @@
-import Button from "../components/ui/button";
-import Project from "../components/ui/project";
+import { ProjectCard } from "./project-card";
+import Button from "@/components/ui/button";
+
 import { ArrowRight } from "lucide-react";
 
-import { projects } from "../data/projects.data";
+import { projects } from "@/data/projects.data";
 
-export default function ProjectsSection() {
+export function ProjectsSection() {
   return (
     <section
       className="bg-background relative z-10 px-6 sm:px-12 py-16 flex flex-col gap-16"
@@ -23,7 +24,7 @@ export default function ProjectsSection() {
 
       <div className="flex flex-col">
         {projects.map((project, index) => (
-          <Project key={index} index={index} project={project} />
+          <ProjectCard key={index} index={index} project={project} />
         ))}
       </div>
     </section>
